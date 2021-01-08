@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FetchJeans } from '../../store/Actions/FetchJeans/FetchJeans';
+import { useHistory } from 'react-router-dom';
 import '../../styles/Products.scss';
 
 export const Jeans = () => {
@@ -10,6 +11,11 @@ export const Jeans = () => {
   useEffect(() => {
     dispatch(FetchJeans());
   }, [dispatch]);
+  const history = useHistory();
+  const redirectToProductDetailsPage = (ID) => {
+    // dispatch(FetchProductByID(ID));
+    history.push(`/product-detail/${ID}`);
+  };
   return (
     <div className="Products">
       <div className="Products__header">
@@ -27,10 +33,14 @@ export const Jeans = () => {
                 return (
                   <div className="details" key={product.id}>
                     <div className="details__image">
-                      <img src={product.images[0].src} alt="" />
+                      <img
+                        src={product.images[0].src}
+                        alt=""
+                        onClick={() => redirectToProductDetailsPage(product.id)}
+                      />
                     </div>
                     <div className="details__description">
-                      <h4>{product.descriptionHtml}</h4>
+                      <h4>{product.handle}</h4>
                       <h4>{`Price: R${product.variants[0].price}`}</h4>
                     </div>
                   </div>

@@ -1,12 +1,19 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FetchHoodies } from '../../store/Actions/FetchHoodies/FetchHoodies';
+import { useHistory } from 'react-router-dom';
+
 import '../../styles/Products.scss';
 
 export const Hoodies = () => {
   const dispatch = useDispatch();
   const { loading, error, hoodiesList } = useSelector((state) => state.hoodies);
 
+  const history = useHistory();
+  const redirectToProductDetailsPage = (ID) => {
+    // dispatch(FetchProductByID(ID));
+    history.push(`/product-detail/${ID}`);
+  };
   useEffect(() => {
     dispatch(FetchHoodies());
   }, [dispatch]);
@@ -27,10 +34,14 @@ export const Hoodies = () => {
                 return (
                   <div className="details" key={product.id}>
                     <div className="details__image">
-                      <img src={product.images[0].src} alt="" />
+                      <img
+                        src={product.images[0].src}
+                        alt=""
+                        onClick={() => redirectToProductDetailsPage(product.id)}
+                      />
                     </div>
                     <div className="details__description">
-                      <h4>{product.descriptionHtml}</h4>
+                      <h4>{product.handle}</h4>
                       <h4>{`Price: R${product.variants[0].price}`}</h4>
                     </div>
                   </div>

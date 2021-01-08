@@ -31,7 +31,9 @@ export const NavigationBar = () => {
       <div className="Navigation__bottom">
         <div className="bottom__left">
           <div className="left__companyName">
-            <h2 className="companyName">Hlongwane Botique</h2>
+            <Link to="/" className="Router__link">
+              <h2 className="companyName">Hlongwane Botique</h2>
+            </Link>
           </div>
           <div className="left__inventoryCategories">
             <Link to="/products/hoodies" className="Router__link">
