@@ -1,0 +1,151 @@
+.NavigationBar {
+  display: flex;
+  flex-flow: column;
+  padding: 1rem;
+  background-color: white;
+  top: 0%;
+  z-index: 999;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  margin-bottom: 1.5rem;
+  position: sticky;
+}
+
+.NavigationBar__top {
+  display: none;
+}
+
+.Navigation__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  .bottom__left {
+    display: flex;
+    align-items: center;
+
+    .left__inventoryCategories {
+      display: none;
+    }
+
+    .companyName {
+      font-weight: 500;
+      font-size: 1.3rem;
+    }
+  }
+
+  .bottom__right {
+    display: flex;
+    align-items: center;
+
+    .search {
+      display: none;
+    }
+
+    .right__bottomLink {
+      display: none;
+    }
+    .user-avatar {
+      display: flex;
+    }
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .NavigationBar {
+    padding: 0%;
+  }
+  .NavigationBar__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid lightgray;
+    padding: 1rem;
+
+    .top__left {
+      display: flex;
+      align-items: center;
+
+      .top__leftLink {
+        margin-left: 1rem;
+        font-weight: 400;
+      }
+    }
+    .top__right {
+      display: flex;
+      align-items: center;
+
+      .top__rightIcon {
+        margin-right: 1rem;
+      }
+      .top__rightLink {
+        font-weight: 400;
+      }
+    }
+  }
+
+  .Navigation__bottom {
+    padding: 1rem;
+
+    .bottom__left {
+      display: flex;
+      align-items: center;
+      width: 50%;
+
+      .left__inventoryCategories {
+        display: flex;
+        margin-left: 1rem;
+
+        .invertory__categories {
+          margin-left: 1rem;
+          cursor: pointer;
+          font-weight: 400;
+        }
+
+        .invertory__categories:hover {
+          border-bottom: 1px solid black;
+        }
+      }
+
+      .companyName {
+        font-weight: 600;
+        font-size: 1.8rem;
+      }
+    }
+
+    .bottom__right {
+      display: flex;
+      align-items: center;
+
+      .search {
+        display: flex;
+        margin-right: 1rem;
+        align-items: center;
+        cursor: pointer;
+      }
+      .search:hover,
+      .right__bottomLink:hover {
+        color: lightgray;
+      }
+
+      .right__bottomSearchText {
+        font-weight: 400;
+      }
+
+      .right__bottomLink {
+        display: flex;
+        margin-right: 1rem;
+        cursor: pointer;
+      }
+      .user-avatar {
+        display: flex;
+      }
+      .line-splitter {
+        margin-right: 1rem;
+        color: lightgray;
+      }
+    }
+  }
+}

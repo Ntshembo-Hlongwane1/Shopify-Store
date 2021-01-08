@@ -1,0 +1,19 @@
+.Menu {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+
+  .Menu__cart,
+  .Menu__wishlist,
+  .Menu__search,
+  .Menu__customerSupport {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    cursor: pointer;
+
+    .menu__link {
+      margin-left: 0.4rem;
+    }
+  }
+}
