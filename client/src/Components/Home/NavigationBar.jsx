@@ -13,6 +13,7 @@ import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import '../../styles/NavigationBar.scss';
 import { MenuBar } from './MenuBar';
+import { Link } from 'react-router-dom';
 
 export const NavigationBar = () => {
   return (
@@ -33,9 +34,15 @@ export const NavigationBar = () => {
             <h2 className="companyName">Hlongwane Botique</h2>
           </div>
           <div className="left__inventoryCategories">
-            <h4 className="invertory__categories">Hoodies</h4>
-            <h4 className="invertory__categories">Jeans</h4>
-            <h4 className="invertory__categories">Sneakers</h4>
+            <Link to="/products/hoodies" className="Router__link">
+              <h4 className="invertory__categories">Hoodies</h4>
+            </Link>
+            <Link to="/products/jeans" className="Router__link">
+              <h4 className="invertory__categories">Jeans</h4>
+            </Link>
+            <Link to="/products/sneakers" className="Router__link">
+              <h4 className="invertory__categories">Sneakers</h4>
+            </Link>
           </div>
         </div>
         <div className="bottom__right">
