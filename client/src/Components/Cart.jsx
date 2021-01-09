@@ -10,6 +10,7 @@ export const Cart = () => {
   const [subtotal, setSubtotal] = useState(0);
   const [checkoutPage, setCheckoutPage] = useState('');
   const checkoutID = localStorage.getItem('checkout');
+
   useEffect(() => {
     client.checkout
       .fetch(checkoutID)
@@ -26,7 +27,15 @@ export const Cart = () => {
   const RedirectToCheckOut = () => {
     window.open(checkoutPage, '_blank');
   };
-  //item.variant.image.src
+  const RemoveFromCart = (ID) => {
+    const lineItemIdsToRemove = [ID];
+    client.checkout
+      .removeLineItems(checkoutID, lineItemIdsToRemove)
+      .then((checkout) => {
+        // Do something with the updated checkout
+        console.log(checkout.lineItems); // Checkout with line item 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0Lzc4NTc5ODkzODQ=' removed
+      });
+  };
   if (cart === null || cart === []) {
     return 'Empty Cart';
   } else {
@@ -44,7 +53,12 @@ export const Cart = () => {
                     <h4>{`R${item.variant.price}`}</h4>
                   </div>
                 </div>
-                <button className="btn-remove-cart-item">DELETE ITEM</button>
+                <button
+                  className="btn-remove-cart-item"
+                  onClick={() => RemoveFromCart(item.id)}
+                >
+                  DELETE ITEM
+                </button>
               </div>
             );
           })}
