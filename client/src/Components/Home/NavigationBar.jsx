@@ -54,7 +54,9 @@ export const NavigationBar = () => {
           </div>
           <h4 className="right__bottomLink line-splitter">|</h4>
           <FavoriteIcon className="right__bottomLink" />
-          <ShoppingCartIcon className="right__bottomLink" />
+          <Link to="/cart" className="Router__link">
+            <ShoppingCartIcon className="right__bottomLink" />
+          </Link>
           <Popup
             trigger={
               <Avatar src="" className="right__bottomLink user-avatar" />

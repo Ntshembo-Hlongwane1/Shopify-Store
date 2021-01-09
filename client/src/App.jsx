@@ -7,6 +7,7 @@ import { Jeans } from './Components/Products/Jeans';
 import { Sneakers } from './Components/Products/Sneakers';
 import { ProductDetails } from './Components/Products/ProductDetails';
 import Client from 'shopify-buy';
+import { Cart } from './Components/Cart';
 
 // client.checkout.create().then((checkout) => {
 //   // Do something with the checkout
@@ -38,6 +39,10 @@ export const App = () => {
         <Route path="/products/hoodies" exact={true}>
           <NavigationBar />
           <Hoodies />
+        </Route>
+        <Route path="/cart" exact={true}>
+          <NavigationBar />
+          <Cart />
         </Route>
         <Route path="/product-detail/:id" exact={true}>
           <NavigationBar />
