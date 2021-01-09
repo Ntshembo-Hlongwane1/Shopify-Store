@@ -18,7 +18,7 @@ export const ProductDetails = () => {
     const lineItemsToAdd = [
       {
         variantId: variantID,
-        quantity: qty
+        quantity: parseInt(qty)
       }
     ];
 
