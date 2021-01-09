@@ -62,6 +62,7 @@ export const NavigationBar = () => {
               <Avatar src="" className="right__bottomLink user-avatar" />
             }
             position="bottom right"
+            nested={true}
           >
             <MenuBar />
           </Popup>
